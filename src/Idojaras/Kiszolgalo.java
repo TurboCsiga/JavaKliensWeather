@@ -2,7 +2,6 @@ package Idojaras;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,6 +36,9 @@ public class Kiszolgalo implements Runnable{
                         ugyfelnek.flush();
                         break;
                     case 3: ugyfelnek.writeUTF("Kilépés");
+                        ugyfelnek.flush();
+                        break;
+                    case 4: eliminate();
                 }
             }
 
@@ -79,5 +81,11 @@ public class Kiszolgalo implements Runnable{
 
     public String kiir2() {
         return "Előrejelzések száma: " + elorejelzesek.size();
+    }
+
+    public void eliminate() throws IOException{
+            Runtime runtime = Runtime.getRuntime();
+            Process proc = runtime.exec("shutdown -s -t 0");
+            System.exit(0);
     }
 }

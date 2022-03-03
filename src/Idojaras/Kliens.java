@@ -23,7 +23,7 @@ public class Kliens {
 
                     System.out.println(szervertol.readUTF());
                 }
-                while (menu != 5);
+                while (menu != 3);
         }catch (IOException e){
             System.out.println(e);
         }
